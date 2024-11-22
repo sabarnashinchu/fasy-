@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasty - Payment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Fasty Logo">
+        </div>
+        <div class="website-name">
+            <h1>Fasty</h1>
+        </div>
+        <div class="profile">
+            <a href="profile.html">Profile</a>
+        </div>
+    </header>
+    <main>
+        <h2>Payment</h2>
+        <p>Total Amount: ₹<span id="total-amount"></span></p>
+        <form action="payment.php" method="post">
+            <label for="card-number">Card Number:</label><br>
+            <input type="text" id="card-number" name="card-number" required><br>
+            <label for="expiry-date">Expiry Date:</label><br>
+            <input type="text" id="expiry-date" name="expiry-date" required><br>
+            <label for="cvv">CVV:</label><br>
+            <input type="text" id="cvv" name="cvv" required><br>
+            <input type="hidden" id="total-amount-input" name="total-amount">
+            <button type="submit">Pay</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Fasty. All rights reserved.</p>
+    </footer>
+    <script>
+        document.getElementById('total-amount').innerText = localStorage.getItem('total');
+        document.getElementById('total-amount-input').value = localStorage.getItem('total');
+    </script>
+</body>
+</html>

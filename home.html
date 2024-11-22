@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasty - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Fasty Logo">
+        </div>
+        <div class="website-name">
+            <h1>Fasty</h1>
+        </div>
+        <div class="profile">
+            <a href="profile.html">Profile</a>
+        </div>
+    </header>
+    <main>
+        <h2>Welcome to Fasty!</h2>
+        <div class="menu">
+            <div class="item">
+                <img src="pizza1.jpeg" alt="Pizza">
+                <h3>Pizza</h3>
+                <label for="pizza-qty">Quantity:</label>
+                <input type="number" id="pizza-qty" name="pizza-qty" min="1" max="10">
+                <p>Price: ₹200</p>
+                <button onclick="addToCart('Pizza', 200)">Add to Cart</button>
+            </div>
+            <div class="item">
+                <img src="burger1.jpg" alt="Burger">
+                <h3>Burger</h3>
+                <label for="burger-qty">Quantity:</label>
+                <input type="number" id="burger-qty" name="burger-qty" min="1" max="10">
+                <p>Price: ₹150</p>
+                <button onclick="addToCart('Burger', 150)">Add to Cart</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Fasty. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

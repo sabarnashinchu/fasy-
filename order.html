@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasty - Order</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Fasty Logo">
+        </div>
+        <div class="website-name">
+            <h1>Fasty</h1>
+        </div>
+        <div class="profile">
+            <a href="profile.html">Profile</a>
+        </div>
+    </header>
+    <main>
+        <h2>Your Order</h2>
+        <div id="order-summary"></div>
+        <p>Total Amount: ₹<span id="total-amount"></span></p>
+        <button onclick="proceedToPayment()">Proceed to Payment</button>
+    </main>
+    <footer>
+        <p>&copy; 2024 Fasty. All rights reserved.</p>
+    </footer>
+    <script>
+        document.getElementById('order-summary').innerText = localStorage.getItem('order');
+        document.getElementById('total-amount').innerText = localStorage.getItem('total');
+
+        function proceedToPayment() {
+            window.location.href = 'payment.html';
+        }
+    </script>
+</body>
+</html>

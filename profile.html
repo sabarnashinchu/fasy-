@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasty - Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Fasty Logo">
+        </div>
+        <div class="website-name">
+            <h1>Fasty</h1>
+        </div>
+        <div class="profile">
+            <span id="username"></span>
+        </div>
+    </header>
+    <main>
+        <h2>Profile</h2>
+        <p>Welcome, <span id="user-profile"></span>!</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Fasty. All rights reserved.</p>
+    </footer>
+    <script>
+        // Check if the username is stored in localStorage and display it
+        const username = localStorage.getItem('username');
+        if (username) {
+            document.getElementById('username').innerText = username;
+            document.getElementById('user-profile').innerText = username;
+        } else {
+            alert('No user logged in');
+            window.location.href = 'login.html'; // Redirect to login page if no user is logged in
+        }
+    </script>
+</body>
+</html>

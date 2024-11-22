@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasty - Receipt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Fasty Logo">
+        </div>
+        <div class="website-name">
+            <h1>Fasty</h1>
+        </div>
+        <div class="profile">
+            <a href="profile.html">Profile</a>
+        </div>
+    </header>
+    <main>
+        <h2>Receipt</h2>
+        <div id="receipt-details"></div>
+        <button onclick="downloadReceipt()">Download Receipt</button>
+    </main>
+    <footer>
+        <p>&copy; 2024 Fasty. All rights reserved.</p>
+    </footer>
+    <script>
+        // Display the order summary and total amount from localStorage
+        document.getElementById('receipt-details').innerText = localStorage.getItem('order') + "\nTotal Amount: ₹" + localStorage.getItem('total');
+
+        function downloadReceipt() {
+            const orderDetails = localStorage.getItem('order');
+            const totalAmount = localStorage.getItem('total');
+            const receiptContent = `Order Details:\n${orderDetails}\nTotal Amount: ₹${totalAmount}`;
+            
+            // Create a Blob with receipt content
+            const blob = new Blob([receiptContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            
+            // Create a link and trigger download
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'receipt.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
